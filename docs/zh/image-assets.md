@@ -224,13 +224,17 @@
 | `partial` | 至少一个来源未能完整核验。已找到的资源照常返回，也可能暂时没有结果。具体缺口写入 `warnings`。例如 Open Access 已找到 JPEG，但 IIIF 请求超时。 |
 | `no_assets` | 完成来源核验，未找到支持的资源。 |
 
-## MCP 与下载 Skill 的分工
+## 在 Playground 查看图片
 
-MCP 返回链接、来源声明尺寸和逐图许可。需要本地文件时，把同一个 `record_id` 交给 Smithsonian Collections Skill。Skill 重新核对官方来源，下载所选 JPEG，检查完整解码和尺寸，并记录 SHA-256。TIFF 是 Skill 的可选下载项。MCP 状态描述清单发现情况，下载回执记录实际保存的文件。
+在 **Inspect a record** 中选择 **Image assets**，输入 NMAH record ID 并提交查询。
+在结果表的 **Resource** 栏选择 **View image**。
+
+- **Open Access API** 图片会打开弹窗，可选择可用的 JPEG 或 TIFF。
+- **IIIF** 图片会在浏览器新标签页打开。
 
 ## 实测结果
 
-2026-11-08 UTC，两次 MCP 调用均返回 `resolved`。Skill 将两张 JPEG 下载到临时目录，核对了格式、完整解码、实际尺寸和 SHA-256。
+2026-11-08 UTC，两次 MCP 调用均返回 `resolved`。独立的 Smithsonian Collections Skill 将两张 JPEG 下载到临时目录，核对了格式、完整解码、实际尺寸和 SHA-256。
 
 | 藏品 | 媒体 ID | 下载来源与实测尺寸 | `media_access` → `usage_label` |
 | --- | --- | --- | --- |

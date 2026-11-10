@@ -224,13 +224,17 @@ Record metadata rights and the Manifest terms link do not supply a missing per-i
 | `partial` | At least one source could not be fully checked. The tool returns any resources found, possibly an empty list, and explains the gap in `warnings`. For example, Open Access returns a JPEG and the IIIF request times out. |
 | `no_assets` | Source checks completed without finding a supported resource. |
 
-## MCP and the download Skill
+## View images in the Playground
 
-The MCP returns links, source dimensions, and per-image rights. For local files, pass the same `record_id` to the Smithsonian Collections Skill. The Skill rechecks official sources, saves the selected JPEG, verifies decoding and dimensions, and records SHA-256. TIFF is optional in the Skill. The MCP status describes source discovery. The download receipt describes the saved file.
+In **Inspect a record**, select **Image assets**, enter the NMAH record ID,
+and submit the lookup. In the **Resource** column, select **View image**.
+
+- **Open Access API** opens a dialog where you can choose an available JPEG or TIFF.
+- **IIIF** opens the image in a new browser tab.
 
 ## Live verification
 
-Both MCP calls returned `resolved` on 2026-11-08 UTC. The Skill downloaded both JPEGs to a temporary directory and verified their format, full decoding, dimensions, and SHA-256.
+Both MCP calls returned `resolved` on 2026-11-08 UTC. The separate Smithsonian Collections Skill downloaded both JPEGs to a temporary directory and verified their format, full decoding, dimensions, and SHA-256.
 
 | Record | Media ID | Download source and verified size | `media_access` → `usage_label` |
 | --- | --- | --- | --- |
