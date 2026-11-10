@@ -1,0 +1,105 @@
+{
+  "@context": "http://www.shared-canvas.org/ns/context.json",
+  "@id": "https://ids.si.edu/ids/manifest/edanmdm:nmah_463569",
+  "@type": "sc:Manifest",
+  "label": "insignia",
+  "logo": "https://ids.si.edu/SI_Sunburst_40px.jpg",
+  "metadata": [
+    {
+      "label": "Object Name",
+      "value": "insignia"
+    },
+    {
+      "label": "Guid",
+      "value": "https://n2t.net/ark:/65665/ng49ca746a2-a78d-704b-e053-15f76fa0b4fa"
+    },
+    {
+      "label": "Data Source",
+      "value": "National Museum of American History"
+    },
+    {
+      "label": "Physical Description",
+      "value": "black (overall color)"
+    },
+    {
+      "label": "Measurements",
+      "value": "overall: 35 in x 1 1/2 in x 1/8 in; 88.9 cm x 3.81 cm x .254 cm"
+    },
+    {
+      "label": "Location",
+      "value": "Currently not on view"
+    },
+    {
+      "label": "Credit Line",
+      "value": "Erminia C. Leonard"
+    },
+    {
+      "label": "ID Number",
+      "value": "1982.0590.01"
+    },
+    {
+      "label": "Accession number",
+      "value": "1982.0590"
+    },
+    {
+      "label": "Catalog number",
+      "value": "1982.0590.01"
+    },
+    {
+      "label": "Associated date",
+      "value": "1917 - 1918"
+    },
+    {
+      "label": "Object Name",
+      "value": "Insignia"
+    },
+    {
+      "label": "Other Terms",
+      "value": "Insignia; Navy; Ribbon, Hat"
+    },
+    {
+      "label": "Link",
+      "value": "<a href='https://collections.si.edu/search/record/edanmdm:nmah_463569'>View Object</a>"
+    }
+  ],
+  "license": "https://www.si.edu/termsofuse",
+  "attribution": "Smithsonian Institution",
+  "description": "Object Record",
+  "sequences": [
+    {
+      "@context": "http://iiif.io/api/presentation/2/context.json",
+      "@id": "https://ids.si.edu/ids/manifest/edanmdm:nmah_463569",
+      "@type": "sc:Sequence",
+      "canvases": [
+        {
+          "@id": "https://ids.si.edu/ids/iiif/canvas-NMAH-AHB2010q67926",
+          "@type": "sc:Canvas",
+          "label": "image NMAH-AHB2010q67926",
+          "height": 2250,
+          "width": 3000,
+          "images": [
+            {
+              "@context": "http://iiif.io/api/presentation/2/context.json",
+              "@id": "https://ids.si.edu/ids/iiif/NMAH-AHB2010q67926",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://ids.si.edu/ids/iiif/NMAH-AHB2010q67926/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "height": 2250,
+                "width": 3000,
+                "format": "image/jpeg",
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://ids.si.edu/ids/iiif/NMAH-AHB2010q67926",
+                  "profile": "http://iiif.io/api/image/2/level2.json"
+                }
+              },
+              "on": "https://ids.si.edu/ids/iiif/NMAH-AHB2010q67926"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

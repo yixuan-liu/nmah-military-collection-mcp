@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+
+.DS_Store
+.ruff_cache/
+.pytest_cache/
+*.py[cod]
+/dist/
+/build/
+/.coverage
+
+# Local copies of Smithsonian source documents
+/docs/reference/smithsonian/API_Documentation.md
+/docs/reference/smithsonian/json_format.md
+/docs/reference/smithsonian/EDAN_IMM_OBJECT_RECORDS_1.09.md
+/docs/reference/smithsonian/EDAN_IMM_OBJECT_RECORDS_1.09.pdf

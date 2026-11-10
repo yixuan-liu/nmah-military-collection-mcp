@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NMAH MCP Playground</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/main.js"></script>
+</head>
+<body>
+<main>
+  <header class="debugger-header">
+    <div><h1>NMAH MCP Playground</h1><p>Search NMAH’s military collections, inspect catalog records, and check image sources and usage rights.</p></div>
+    <div class="header-controls">
+      <button class="api-key-trigger" id="open-api-key" type="button" aria-haspopup="dialog">API key</button>
+    </div>
+  </header>
+  <div class="layout">
+      <section class="panel search-parameters">
+        <h2>Search parameters</h2>
+        <form id="search-form">
+          <div class="field-with-help">
+            <label for="query">Free-text query</label>
+            <button class="help-trigger" type="button" aria-label="About the free-text query" aria-describedby="query-hint"><span aria-hidden="true">?</span></button>
+            <p class="help-tooltip" id="query-hint" role="tooltip" hidden>Enter a keyword or record ID. Leave blank to search using only the selected filters.</p>
+          </div>
+          <div class="clearable-field">
+            <input id="query" aria-describedby="query-hint" placeholder="cap or nmah_446333">
+            <button class="clear-field-button" type="button" aria-label="Clear free-text query" hidden>×</button>
+          </div>
+          <label for="branch">Service branch</label>
+          <select id="branch"><option value="">All</option></select>
+          <label for="date">Date / Period</label>
+          <select id="date"><option value="">All</option></select>
+          <label class="checkbox-label"><input id="has-images" type="checkbox">Show only items with images</label>
+          <details id="search-pagination-options" class="search-pagination-options">
+            <summary>Pagination options</summary>
+            <label for="rows">Rows</label>
+            <input id="rows" type="number" value="3" min="1" max="50" required>
+            <label for="offset">Offset</label>
+            <input id="offset" type="number" value="0" min="0" required>
+          </details>
+          <span class="tool-action tool-action-primary" role="group" aria-label="Search objects availability">
+              <button class="primary" type="submit" disabled>Search objects</button>
+              <span class="help-tooltip" id="search-disconnected" role="tooltip" hidden>This MCP tool is disconnected. Reconnect it in the MCP tools menu.</span>
+            </span>
+          <p id="search-key-setup" class="search-key-setup" hidden>
+            A Smithsonian API key is required. <button id="search-open-api-key" type="button" aria-haspopup="dialog">Set API key</button>
+          </p>
+        </form>
+      </section>
+    <div class="debugger-work">
+      <section class="panel">
+        <div class="toolbar"><h2 id="search-results-title" tabindex="-1">Search results</h2><span class="secondary-status" id="search-status" role="status"></span></div>
+        <div id="search-request-id" class="request-id-row" hidden><span>Request ID</span><code></code></div>
+        <details id="search-output" open data-accordion-state="empty">
+          <summary>Records <span class="accordion-ready">Ready</span><span class="accordion-count"></span></summary>
+          <p id="search-empty" class="accordion-empty"><strong>No data</strong><small>Run a search to find records.</small></p>
+          <p class="accordion-loading" role="status">Loading…</p>
+          <div class="table-wrap"><table id="search-table" hidden><thead><tr><th scope="col">Record ID</th><th scope="col">Title</th><th scope="col" class="search-row-action" aria-label="Actions"></th></tr></thead><tbody id="search-results"></tbody></table></div>
+          <div id="search-pagination" class="search-pagination" role="group" aria-label="Search result pages" hidden>
+            <span class="tool-action">
+              <button id="previous-page" type="button" aria-label="Previous page" title="Previous page" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <span class="help-tooltip" id="previous-page-unavailable" role="tooltip" hidden></span>
+            </span>
+            <span id="search-page-label" class="search-pagination-label" role="status"></span>
+            <span class="tool-action">
+              <button id="next-page" type="button" aria-label="Next page" title="Next page" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+              </button>
+              <span class="help-tooltip" id="next-page-unavailable" role="tooltip" hidden></span>
+            </span>
+          </div>
+        </details>
+        <details data-accordion-state="empty">
+          <summary>Applied query and filters<span class="accordion-ready">Ready</span></summary>
+          <pre id="search-query"></pre>
+          <p class="accordion-loading">Loading…</p>
+          <p class="accordion-empty"><strong>No data</strong><small>Run a search to see the applied query and filters.</small></p>
+        </details>
+        <details data-accordion-state="empty">
+          <summary>Raw search result <span class="accordion-ready">Ready</span><span class="accordion-count"></span></summary>
+          <pre id="search-raw"></pre>
+          <p class="accordion-loading">Loading…</p>
+          <p class="accordion-empty"><strong>No data</strong><small>Run a search to see its JSON response.</small></p>
+        </details>
+      </section>
+      <section class="panel">
+        <h2>Inspect a record</h2>
+        <form id="record-form">
+          <div class="record-modes" id="record-modes" role="radiogroup" aria-label="Record lookup mode">
+            <label><input type="radio" name="record-mode" value="image-assets" checked>Image assets</label>
+            <label><input type="radio" name="record-mode" value="metadata">Metadata</label>
+            <div class="record-mode-highlight" aria-hidden="true">
+              <div class="record-mode-highlight-text"><span>Image assets</span><span>Metadata</span></div>
+            </div>
+          </div>
+          <div class="field-with-help">
+            <label for="record-id">Record ID</label>
+            <button class="help-trigger" type="button" aria-label="About the Record ID format" aria-describedby="record-id-hint"><span aria-hidden="true">?</span></button>
+            <p class="help-tooltip" id="record-id-hint" role="tooltip" hidden>Use a lowercase <code>nmah_</code> prefix followed by one or more digits, for example <code>nmah_446333</code>.</p>
+          </div>
+          <div class="clearable-field">
+            <input id="record-id" placeholder="e.g. nmah_446333" aria-describedby="record-id-hint record-enter-instruction record-id-error record-status" enterkeyhint="search" pattern="nmah_[0-9]+" maxlength="64" autocomplete="off" autocapitalize="none" spellcheck="false" required>
+            <button id="clear-record-id" class="clear-field-button" type="button" aria-label="Clear record ID" hidden>×</button>
+            <button id="record-submit" class="record-submit" type="submit" aria-label="Get image assets" title="Get image assets" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5v7a3 3 0 0 1-3 3H4m5-5-5 5 5 5"/></svg>
+            </button>
+          </div>
+          <p class="record-feedback secondary-status" id="record-id-error" data-tone="error" role="alert"></p>
+          <span id="record-enter-instruction" hidden>Press Enter to look up this record.</span>
+          <p class="record-feedback secondary-status" id="record-status" role="status" aria-atomic="true"></p>
+        </form>
+        <details class="record-output" id="record-output-image-assets" hidden>
+          <summary>Image assets <span class="accordion-ready">Ready</span><span class="accordion-count" aria-live="polite"></span><span class="secondary-status" role="status" aria-atomic="true"></span></summary>
+          <div id="image-assets-request-id" class="request-id-row" hidden><span>Request ID</span><code></code></div>
+          <div class="record-results"></div>
+        </details>
+        <details class="record-output" id="record-output-metadata" hidden>
+          <summary>Metadata <span class="accordion-ready">Ready</span><span class="accordion-count" aria-live="polite"></span><span class="secondary-status" role="status" aria-atomic="true"></span></summary>
+          <div id="metadata-request-id" class="request-id-row" hidden><span>Request ID</span><code></code></div>
+          <div class="record-results"></div>
+        </details>
+        <details data-accordion-state="empty">
+          <summary><span id="record-raw-label">Raw record tool result</span> <span class="accordion-ready">Ready</span><span class="accordion-count"></span></summary>
+          <pre id="record-raw"></pre>
+          <p class="accordion-loading">Loading…</p>
+          <p class="accordion-empty"><strong>No data</strong><small>Choose a lookup mode, enter a record ID, then press Enter.</small></p>
+        </details>
+      </section>
+    </div>
+    <div class="tool-support">
+      <section class="panel tool-contracts">
+        <h2>Tool contracts</h2>
+        <label for="tool">MCP tool</label><select id="tool"></select>
+        <details data-accordion-state="empty">
+          <summary id="schema-summary" aria-disabled="true" tabindex="-1">View input and output schema<span class="accordion-ready">Ready</span></summary>
+          <pre id="schema"></pre>
+          <p class="accordion-loading">Loading…</p>
+          <p class="accordion-empty"><strong>No data</strong><small>Connect to MCP, then select a tool to view its schema.</small></p>
+        </details>
+      </section>
+      <details class="connection">
+        <summary>MCP tool connections <span class="connection-count" id="connection" role="status">Checking availability…</span></summary>
+        <p class="connection-scope">These controls apply to tool calls in this Playground.</p>
+        <ul id="connected-tools" aria-label="MCP tool connections"><li>Discovering tools…</li></ul>
+      </details>
+    </div>
+  </div>
+  <footer>
+    <span>Local playground for the NMAH MCP server.</span>
+    <span>v0.1.0</span>
+  </footer>
+</main>
+<template id="cc-zero-icon">
+  <button type="button" class="usage-icon" aria-label="About CC0 usage rights">
+    <!-- https://mirrors.creativecommons.org/presskit/icons/cc.svg -->
+    <svg viewBox="5.5 -3.5 64 64" aria-hidden="true" focusable="false">
+      <g>
+        <circle fill="#FFFFFF" cx="37.785" cy="28.501" r="28.836"/>
+        <path class="usage-icon-rim" d="M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314
+          c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143
+          c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429
+          c-3.866-1.618-7.333-3.961-10.4-7.027c-3.067-3.066-5.4-6.524-7-10.372S5.5,32.767,5.5,28.5c0-4.229,0.809-8.295,2.428-12.2
+          c1.619-3.905,3.972-7.4,7.057-10.486C21.08-0.394,28.565-3.5,37.441-3.5z M37.557,2.272c-7.314,0-13.467,2.553-18.458,7.657
+          c-2.515,2.553-4.448,5.419-5.8,8.6c-1.354,3.181-2.029,6.505-2.029,9.972c0,3.429,0.675,6.734,2.029,9.913
+          c1.353,3.183,3.285,6.021,5.8,8.516c2.514,2.496,5.351,4.399,8.515,5.715c3.161,1.314,6.476,1.971,9.943,1.971
+          c3.428,0,6.75-0.665,9.973-1.999c3.219-1.335,6.121-3.257,8.713-5.771c4.99-4.876,7.484-10.99,7.484-18.344
+          c0-3.543-0.648-6.895-1.943-10.057c-1.293-3.162-3.18-5.98-5.654-8.458C50.984,4.844,44.795,2.272,37.557,2.272z"/>
+        <path d="M37.156,23.187
+          l-4.287,2.229c-0.458-0.951-1.019-1.619-1.685-2c-0.667-0.38-1.286-0.571-1.858-0.571c-2.856,0-4.286,1.885-4.286,5.657
+          c0,1.714,0.362,3.084,1.085,4.113c0.724,1.029,1.791,1.544,3.201,1.544c1.867,0,3.181-0.915,3.944-2.743l3.942,2
+          c-0.838,1.563-2,2.791-3.486,3.686c-1.484,0.896-3.123,1.343-4.914,1.343c-2.857,0-5.163-0.875-6.915-2.629
+          c-1.752-1.752-2.628-4.19-2.628-7.313c0-3.048,0.886-5.466,2.657-7.257c1.771-1.79,4.009-2.686,6.715-2.686
+          C32.604,18.558,35.441,20.101,37.156,23.187z M55.613,23.187l-4.229,2.229c-0.457-0.951-1.02-1.619-1.686-2
+          c-0.668-0.38-1.307-0.571-1.914-0.571c-2.857,0-4.287,1.885-4.287,5.657c0,1.714,0.363,3.084,1.086,4.113
+          c0.723,1.029,1.789,1.544,3.201,1.544c1.865,0,3.18-0.915,3.941-2.743l4,2c-0.875,1.563-2.057,2.791-3.541,3.686
+          c-1.486,0.896-3.105,1.343-4.857,1.343c-2.896,0-5.209-0.875-6.941-2.629c-1.736-1.752-2.602-4.19-2.602-7.313
+          c0-3.048,0.885-5.466,2.658-7.257c1.77-1.79,4.008-2.686,6.713-2.686C51.117,18.558,53.938,20.101,55.613,23.187z"/>
+      </g>
+    </svg>
+    <!-- https://mirrors.creativecommons.org/presskit/icons/zero.svg -->
+    <svg viewBox="-0.5 0.5 64 64" aria-hidden="true" focusable="false">
+      <g>
+        <circle fill="#FFFFFF" cx="31.325" cy="32.873" r="30.096"/>
+        <path d="M31.5,14.08c-10.565,0-13.222,9.969-13.222,18.42c0,8.452,2.656,18.42,13.222,18.42
+          c10.564,0,13.221-9.968,13.221-18.42C44.721,24.049,42.064,14.08,31.5,14.08z M31.5,21.026c0.429,0,0.82,0.066,1.188,0.157
+          c0.761,0.656,1.133,1.561,0.403,2.823l-7.036,12.93c-0.216-1.636-0.247-3.24-0.247-4.437C25.808,28.777,26.066,21.026,31.5,21.026z
+           M36.766,26.987c0.373,1.984,0.426,4.056,0.426,5.513c0,3.723-0.258,11.475-5.69,11.475c-0.428,0-0.822-0.045-1.188-0.136
+          c-0.07-0.021-0.134-0.043-0.202-0.067c-0.112-0.032-0.23-0.068-0.336-0.11c-1.21-0.515-1.972-1.446-0.874-3.093L36.766,26.987z"/>
+        <path class="usage-icon-rim" d="M31.433,0.5c-8.877,0-16.359,3.09-22.454,9.3c-3.087,3.087-5.443,6.607-7.082,10.532
+          C0.297,24.219-0.5,28.271-0.5,32.5c0,4.268,0.797,8.32,2.397,12.168c1.6,3.85,3.921,7.312,6.969,10.396
+          c3.085,3.049,6.549,5.399,10.398,7.037c3.886,1.602,7.939,2.398,12.169,2.398c4.229,0,8.34-0.826,12.303-2.465
+          c3.962-1.639,7.496-3.994,10.621-7.081c3.011-2.933,5.289-6.297,6.812-10.106C62.73,41,63.5,36.883,63.5,32.5
+          c0-4.343-0.77-8.454-2.33-12.303c-1.562-3.885-3.848-7.32-6.857-10.33C48.025,3.619,40.385,0.5,31.433,0.5z M31.567,6.259
+          c7.238,0,13.412,2.566,18.554,7.709c2.477,2.477,4.375,5.31,5.67,8.471c1.296,3.162,1.949,6.518,1.949,10.061
+          c0,7.354-2.516,13.454-7.506,18.33c-2.592,2.516-5.502,4.447-8.74,5.781c-3.2,1.334-6.498,1.994-9.927,1.994
+          c-3.468,0-6.788-0.653-9.949-1.948c-3.163-1.334-6.001-3.238-8.516-5.716c-2.515-2.514-4.455-5.353-5.826-8.516
+          c-1.333-3.199-2.017-6.498-2.017-9.927c0-3.467,0.684-6.787,2.017-9.949c1.371-3.2,3.312-6.074,5.826-8.628
+          C18.092,8.818,24.252,6.259,31.567,6.259z"/>
+      </g>
+    </svg>
+  </button>
+  <div class="help-tooltip column-help usage-help" popover="auto">
+    This media is in the public domain (free of copyright restrictions). You can copy, modify, and distribute this work without contacting the Smithsonian. For more information, visit the Smithsonian's <a href="https://www.si.edu/termsofuse" target="_blank" rel="noopener noreferrer">Terms of Use</a> page.
+  </div>
+</template>
+<template id="usage-terms-help">
+  <button type="button" class="usage-terms-trigger">Usage terms apply</button>
+  <div class="help-tooltip column-help usage-help" popover="auto">
+    Check the Smithsonian's usage conditions before reusing this image. See the <a href="https://www.si.edu/termsofuse" target="_blank" rel="noopener noreferrer">Smithsonian Terms of Use</a> for details.
+  </div>
+</template>
+<dialog class="key-dialog" id="api-key-dialog" aria-labelledby="api-key-title">
+  <div class="toolbar">
+    <h2 id="api-key-title">Smithsonian API key</h2>
+    <button class="dialog-close" id="close-api-key" type="button" aria-label="Close API key settings" autofocus>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+        <path d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+  </div>
+  <p>Use a Smithsonian Open Access key for calls from this Playground.</p>
+  <p><a href="https://edan.si.edu/openaccess/signup/form/" target="_blank" rel="noopener noreferrer">Get a Smithsonian API key</a></p>
+  <form id="key-form" method="dialog">
+    <label for="api-key-input">API key</label>
+    <div class="key-input">
+      <input id="api-key-input" type="password" maxlength="256" autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="key-help">
+      <div class="key-input-actions">
+        <div class="inline-icon-action">
+          <button id="show-api-key" type="button" aria-label="Show API key">
+            <svg id="key-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z"/>
+              <circle cx="12" cy="12" r="2.5"/>
+            </svg>
+            <svg id="key-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" hidden>
+              <path d="M3 3l18 18M10 6.2c.7-.1 1.3-.2 2-.2 6.4 0 10 6 10 6a15 15 0 0 1-2.7 3.1M6.2 7.7C3.5 9.4 2 12 2 12s3.6 6 10 6a12 12 0 0 0 4-.7"/>
+              <path d="M9.6 11.4a2.5 2.5 0 0 0 3 3"/>
+            </svg>
+          </button>
+          <span class="help-tooltip" id="key-visibility-hint" aria-hidden="true">Show</span>
+        </div>
+        <div class="inline-icon-action">
+          <button id="copy-api-key" type="button" aria-label="Copy API key" disabled>
+            <svg id="key-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="8" y="8" width="12" height="12" rx="2"/>
+              <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+            </svg>
+            <svg id="key-copy-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" hidden>
+              <path d="m5 12 4 4L19 6"/>
+            </svg>
+          </button>
+          <span class="help-tooltip" id="key-copy-hint" aria-hidden="true">Copy</span>
+        </div>
+      </div>
+    </div>
+    <div class="key-summary" role="status">
+      <strong id="key-state">Checking configuration…</strong>
+      <small id="key-source"></small>
+    </div>
+    <p id="key-help">A key entered here lasts until the local Playground restarts and is shared by its tabs.</p>
+    <p class="key-feedback" id="key-feedback" role="status"></p>
+    <div class="actions">
+      <button id="use-default-key" type="button" hidden>Use project default</button>
+      <button class="key-apply" id="apply-api-key" type="submit" disabled>Verify and apply</button>
+      <button class="key-apply" id="continue-to-search" type="button" hidden>Continue to search</button>
+    </div>
+  </form>
+</dialog>
+<dialog class="image-viewer" id="image-viewer" aria-labelledby="image-viewer-title">
+  <div class="toolbar">
+    <h2 id="image-viewer-title">Original image</h2>
+    <form method="dialog">
+      <button class="dialog-close" type="submit" aria-label="Close image preview" autofocus>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M6 6l12 12M18 6L6 18"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+  <p id="image-viewer-status" role="status"></p>
+  <img id="image-viewer-image" alt="" referrerpolicy="no-referrer" hidden>
+  <div id="image-viewer-source"></div>
+</dialog>
+<template id="image-download-icon">
+  <svg class="image-download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/>
+  </svg>
+</template>
+<template id="accordion-copy-template">
+  <div class="accordion-copy-tools">
+    <div class="inline-icon-action copy-action json-copy-action">
+      <button type="button" aria-label="Copy JSON">
+        <svg class="accordion-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <rect x="8" y="8" width="12" height="12" rx="2"/>
+          <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>
+        </svg>
+        <svg class="accordion-copy-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="m5 12 4 4L19 6"/>
+        </svg>
+      </button>
+      <span class="help-tooltip" role="status">Copy</span>
+    </div>
+    <div class="inline-icon-action">
+      <button type="button" data-expand-json aria-label="View JSON full screen" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M9 4H4v5m11-5h5v5m0 6v5h-5M4 15v5h5"/>
+        </svg>
+      </button>
+      <span class="help-tooltip" aria-hidden="true">Full screen</span>
+    </div>
+  </div>
+  <dialog class="json-dialog">
+    <header class="json-dialog-header">
+      <h2></h2>
+      <div class="json-dialog-actions">
+        <div class="inline-icon-action">
+          <button type="button" data-close-json aria-label="Exit full screen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6L6 18"/>
+            </svg>
+          </button>
+          <span class="help-tooltip" aria-hidden="true">Exit full screen</span>
+        </div>
+      </div>
+    </header>
+    <form class="json-find" role="search" aria-label="Find in JSON">
+      <div class="clearable-field">
+        <input type="search" aria-label="Find in JSON" placeholder="Find a field or value" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <button class="clear-field-button" type="button" aria-label="Clear JSON search" hidden>×</button>
+      </div>
+      <div class="json-find-nav">
+        <div class="inline-icon-action">
+          <button type="button" data-previous-match aria-label="Previous match" aria-keyshortcuts="Shift+Enter" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m6 15 6-6 6 6"/>
+            </svg>
+          </button>
+          <span class="help-tooltip" aria-hidden="true">Previous match (Shift+Enter)</span>
+        </div>
+        <div class="inline-icon-action">
+          <button type="submit" aria-label="Next match" aria-keyshortcuts="Enter" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+          <span class="help-tooltip" aria-hidden="true">Next match (Enter)</span>
+        </div>
+      </div>
+      <span class="json-find-status secondary-status" role="status" aria-atomic="true"></span>
+    </form>
+  </dialog>
+</template>
+</body>
+</html>

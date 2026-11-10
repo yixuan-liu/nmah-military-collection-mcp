@@ -1,0 +1,110 @@
+{
+  "status": 200,
+  "responseCode": 1,
+  "response": {
+    "id": "ld1-1643399055209-1643399059615-1",
+    "title": "insignia",
+    "unitCode": "NMAH",
+    "type": "edanmdm",
+    "url": "edanmdm:nmah_463569",
+    "content": {
+      "freetext": {
+        "date": [
+          {
+            "label": "associated date",
+            "content": "1917 - 1918"
+          }
+        ],
+        "notes": [
+          {
+            "label": "Location",
+            "content": "Currently not on view"
+          }
+        ],
+        "setName": [
+          {
+            "label": "See more items in",
+            "content": "Military and Society: Armed Forces History, Naval"
+          }
+        ],
+        "creditLine": [
+          {
+            "label": "Credit Line",
+            "content": "Erminia C. Leonard"
+          }
+        ],
+        "dataSource": [
+          {
+            "label": "Data Source",
+            "content": "National Museum of American History"
+          }
+        ],
+        "identifier": [
+          {
+            "label": "ID Number",
+            "content": "1982.0590.01"
+          },
+          {
+            "label": "accession number",
+            "content": "1982.0590"
+          },
+          {
+            "label": "catalog number",
+            "content": "1982.0590.01"
+          }
+        ],
+        "objectType": [
+          {
+            "label": "Object Name",
+            "content": "Insignia"
+          },
+          {
+            "label": "Other Terms",
+            "content": "Insignia; Navy; Ribbon, Hat"
+          }
+        ],
+        "physicalDescription": [
+          {
+            "label": "Physical Description",
+            "content": "black (overall color)"
+          },
+          {
+            "label": "Measurements",
+            "content": "overall: 35 in x 1 1/2 in x 1/8 in; 88.9 cm x 3.81 cm x .254 cm"
+          }
+        ]
+      },
+      "indexedStructured": {
+        "date": [
+          "1910s"
+        ],
+        "object_type": [
+          "Insignias",
+          "Insignia; Navy; Ribbon, Hat"
+        ],
+        "online_media_type": [
+          "Images"
+        ]
+      },
+      "descriptiveNonRepeating": {
+        "guid": "https://n2t.net/ark:/65665/ng49ca746a2-a78d-704b-e053-15f76fa0b4fa",
+        "title": {
+          "label": "Object Name",
+          "content": "insignia"
+        },
+        "record_ID": "nmah_463569",
+        "unit_code": "NMAH",
+        "title_sort": "INSIGNIA",
+        "data_source": "National Museum of American History",
+        "metadata_usage": {
+          "access": "CC0"
+        }
+      }
+    },
+    "hash": "07c724788b4583ca942135a33dc361daf2a8ec83",
+    "docSignature": "5be6279ffce743b56ec180107623f397",
+    "timestamp": "1663782532",
+    "lastTimeUpdated": "1793203486",
+    "version": ""
+  }
+}

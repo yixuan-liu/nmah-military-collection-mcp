@@ -1,0 +1,593 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Smithsonian Institution Open Access API",
+    "version": "1.0.0",
+    "description": "Search Smithsonian Open Access collections, retrieve collection records, browse vocabulary terms, and access statistics for CC0 objects and media. Requests require an API key supplied in the api_key query parameter.\n\n[Register for an API key](https://edan.si.edu/openaccess/signup/form/).\n\n[General information about the data repository and API](https://edan.si.edu/openaccess/docs/).\n\n[Smithsonian Open Access](https://www.si.edu/openaccess).",
+    "termsOfService": "https://www.si.edu/termsofuse"
+  },
+  "servers": [
+    {
+      "url": "https://api.si.edu/openaccess/api/v1.0",
+      "description": "Smithsonian Open Access production API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Content",
+      "description": "Retrieve individual repository records."
+    },
+    {
+      "name": "Search",
+      "description": "Search records across the repository or a broad category."
+    },
+    {
+      "name": "Terms",
+      "description": "Discover vocabulary terms."
+    },
+    {
+      "name": "Metrics",
+      "description": "General CC0 object and media statistics."
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/content/{id}": {
+      "get": {
+        "operationId": "getContent",
+        "tags": [
+          "Content"
+        ],
+        "summary": "Fetch a record by row ID or repository URL",
+        "description": "Fetch content by row ID or repository URL.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Row ID or repository URL.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "edanmdm:nmaahc_2012.36.4ab"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentEnvelope"
+                },
+                "example": {
+                  "status": 200,
+                  "responseCode": 1,
+                  "response": {
+                    "id": "edanmdm-nmaahc_2012.36.4ab",
+                    "title": "Drumsticks used by Art Blakey",
+                    "unitCode": "NMAAHC",
+                    "linkedId": "",
+                    "type": "edanmdm",
+                    "url": "edanmdm:nmaahc_2012.36.4ab",
+                    "content": {},
+                    "hash": "b4c4a61ab9b71eb8777e50b5745c4ab0c75d1999",
+                    "docSignature": "32081c6289db2620a3d2e61f453ad9330d071335_08dc8e60c5b2eeb3e60dcd71f40072f5",
+                    "timestamp": 1578947538,
+                    "lastTimeUpdated": 1578947529,
+                    "version": "123-1559922770904-1559922814561-0"
+                  },
+                  "message": "content found"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: one or more parameters did not pass validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "status": 400,
+                  "responseCode": 0,
+                  "response": {
+                    "error": "bad request: one of your params did not pass validation"
+                  },
+                  "timestamp": "Fri Jun 07 09:23:09 EDT 2019"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "status": 404,
+                  "responseCode": 0,
+                  "response": {
+                    "error": "not found: the resource you were acting on could not be found"
+                  },
+                  "timestamp": "Fri Jun 07 09:23:09 EDT 2019"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats": {
+      "get": {
+        "operationId": "getStats",
+        "tags": [
+          "Metrics"
+        ],
+        "summary": "Fetch statistics for CC0 objects and media",
+        "description": "Fetch statistics for CC0 objects and media.",
+        "responses": {
+          "200": {
+            "description": "CC0 object and media statistics."
+          }
+        }
+      }
+    },
+    "/category/{cat}/search": {
+      "get": {
+        "operationId": "searchCategory",
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search a broad Smithsonian category",
+        "description": "Search within a category. Permission: edan.",
+        "parameters": [
+          {
+            "name": "cat",
+            "in": "path",
+            "required": true,
+            "description": "Broad category to search.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "art_design",
+                "history_culture",
+                "science_technology"
+              ]
+            }
+          },
+          {
+            "$ref": "#/components/parameters/CategoryQuery"
+          },
+          {
+            "$ref": "#/components/parameters/Start"
+          },
+          {
+            "$ref": "#/components/parameters/Rows"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/FilterQueries"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category search results."
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "operationId": "searchRecords",
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search collection or archival records",
+        "description": "Search collection and archival records. Permission: edan.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/SearchQuery"
+          },
+          {
+            "$ref": "#/components/parameters/Start"
+          },
+          {
+            "$ref": "#/components/parameters/Rows"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/RecordType"
+          },
+          {
+            "$ref": "#/components/parameters/RowGroup"
+          },
+          {
+            "$ref": "#/components/parameters/FilterQueries"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchEnvelope"
+                },
+                "example": {
+                  "status": 200,
+                  "responseCode": 1,
+                  "response": {
+                    "rows": [
+                      {
+                        "id": "edanmdm-nmaahc_2012.36.4ab",
+                        "title": "Drumsticks used by Art Blakey",
+                        "unitCode": "NMAAHC",
+                        "linkedId": "",
+                        "type": "edanmdm",
+                        "url": "edanmdm:nmaahc_2012.36.4ab",
+                        "content": {},
+                        "hash": "b4c4a61ab9b71eb8777e50b5745c4ab0c75d1999",
+                        "docSignature": "32081c6289db2620a3d2e61f453ad9330d071335_08dc8e60c5b2eeb3e60dcd71f40072f5",
+                        "timestamp": 1578947538,
+                        "lastTimeUpdated": 1578947529,
+                        "version": "123-1559922770904-1559922814561-0"
+                      }
+                    ],
+                    "rowCount": 1,
+                    "message": "content found"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request: one or more parameters did not pass validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "status": 400,
+                  "responseCode": 0,
+                  "response": {
+                    "error": "bad request: one of your params did not pass validation"
+                  },
+                  "timestamp": "Fri Jun 07 09:23:09 EDT 2019"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                },
+                "example": {
+                  "status": 404,
+                  "responseCode": 0,
+                  "response": {
+                    "error": "not found: the resource you were acting on could not be found"
+                  },
+                  "timestamp": "Fri Jun 07 09:23:09 EDT 2019"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/terms/{category}": {
+      "get": {
+        "operationId": "listTerms",
+        "tags": [
+          "Terms"
+        ],
+        "summary": "Fetch terms in a vocabulary category",
+        "description": "Fetch an array of terms by term category. Permission: edan.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "description": "Term category.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "culture",
+                "data_source",
+                "date",
+                "object_type",
+                "online_media_type",
+                "place",
+                "topic",
+                "unit_code"
+              ]
+            },
+            "example": "topic"
+          },
+          {
+            "name": "starts_with",
+            "in": "query",
+            "required": false,
+            "description": "Optional prefix filter. This is not a substring search.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "World"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Terms matching the requested category and optional prefix."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyQuery": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "api_key",
+        "description": "API key obtained from https://edan.si.edu/openaccess/signup/form/."
+      }
+    },
+    "parameters": {
+      "Start": {
+        "name": "start",
+        "in": "query",
+        "required": false,
+        "description": "Starting row of the query.",
+        "schema": {
+          "type": "integer",
+          "default": 0
+        }
+      },
+      "Rows": {
+        "name": "rows",
+        "in": "query",
+        "required": false,
+        "description": "Number of rows to return. The documented range is 0 through 1000.",
+        "schema": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "default": 10
+        }
+      },
+      "Sort": {
+        "name": "sort",
+        "in": "query",
+        "required": false,
+        "description": "Sort order. Omit to sort by relevancy. newest sorts by timestamp descending; updated sorts by lastTimeUpdated descending.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "id",
+            "newest",
+            "updated",
+            "random"
+          ]
+        }
+      },
+      "RecordType": {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "description": "Repository row type. Each type conforms to its published schema.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "edanmdm",
+            "ead_collection",
+            "ead_component",
+            "all"
+          ],
+          "default": "edanmdm"
+        }
+      },
+      "RowGroup": {
+        "name": "row_group",
+        "in": "query",
+        "required": false,
+        "description": "objects covers objects, artifacts, and specimens. archives covers archival collection and item records.",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "objects",
+            "archives"
+          ],
+          "default": "objects"
+        }
+      },
+      "SearchQuery": {
+        "name": "q",
+        "in": "query",
+        "required": false,
+        "description": "Search expression accepting fielded and non-fielded queries, such as topic:Gastropoda. See terms for additional field types.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "topic:Gastropoda"
+      },
+      "CategoryQuery": {
+        "name": "q",
+        "in": "query",
+        "required": true,
+        "description": "Query to issue against a category, such as topic:Gastropoda. See terms for additional field types.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "topic:Gastropoda"
+      },
+      "FilterQueries": {
+        "name": "fqs",
+        "in": "query",
+        "required": false,
+        "description": "A JSON-encoded array of filter queries. Filter queries support Boolean operators AND and OR, as well as fielded searches.",
+        "schema": {
+          "type": "string"
+        },
+        "example": "[\"unit_code:NMAH\",\"object_type:\\\"Insignias\\\"\"]"
+      }
+    },
+    "schemas": {
+      "RepositoryRecord": {
+        "type": "object",
+        "description": "Repository record containing identifying information and type-specific metadata.",
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unitCode": {
+            "type": "string"
+          },
+          "linkedId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "docSignature": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "content": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "Type-specific record metadata. Content is omitted from the abbreviated examples."
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Timestamp in seconds since the Unix epoch."
+          },
+          "lastTimeUpdated": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Record modification time in seconds since the Unix epoch."
+          },
+          "status": {
+            "type": "integer",
+            "description": "Record publication state. A value of 0 indicates published."
+          },
+          "publicSearch": {
+            "type": "boolean"
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
+      "ContentEnvelope": {
+        "type": "object",
+        "description": "Content response.",
+        "additionalProperties": true,
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "responseCode": {
+            "type": "integer"
+          },
+          "response": {
+            "$ref": "#/components/schemas/RepositoryRecord"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "SearchEnvelope": {
+        "type": "object",
+        "description": "Search response. rowCount is the total number of matches.",
+        "additionalProperties": true,
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "responseCode": {
+            "type": "integer"
+          },
+          "response": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "rows": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/RepositoryRecord"
+                }
+              },
+              "rowCount": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ErrorEnvelope": {
+        "type": "object",
+        "description": "Error response.",
+        "additionalProperties": true,
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "responseCode": {
+            "type": "integer"
+          },
+          "response": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "error": {
+                "type": "string"
+              }
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "Human-readable response timestamp."
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Smithsonian Open Access API documentation",
+    "url": "https://edan.si.edu/openaccess/apidocs/"
+  }
+}

@@ -1,0 +1,520 @@
+{
+  "nodes": [
+    {
+      "id": "A",
+      "en": "Military Uniforms",
+      "children": [
+        {
+          "id": "dress_and_ceremonial_uniforms",
+          "en": "Dress and ceremonial uniforms",
+          "children": []
+        },
+        {
+          "id": "service_and_duty_uniforms",
+          "en": "Service and duty uniforms",
+          "children": []
+        },
+        {
+          "id": "field_and_combat_uniforms",
+          "en": "Field and combat uniforms",
+          "children": []
+        },
+        {
+          "id": "work_and_special_purpose_uniforms",
+          "en": "Work and special-purpose uniforms",
+          "children": []
+        },
+        {
+          "id": "outerwear_and_protective_clothing",
+          "en": "Outerwear and protective clothing",
+          "children": []
+        },
+        {
+          "id": "uniform_ensembles_and_sets",
+          "en": "Uniform ensembles and sets",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "en": "Military Headgear and Headgear Accessories",
+      "children": [
+        {
+          "id": "dress_and_service_caps",
+          "en": "Dress and service caps",
+          "children": []
+        },
+        {
+          "id": "field_caps",
+          "en": "Duty and field caps",
+          "children": []
+        },
+        {
+          "id": "helmets",
+          "en": "Helmets and protective headgear",
+          "children": []
+        },
+        {
+          "id": "cap_badges",
+          "en": "Cap badges and headgear insignia",
+          "children": []
+        },
+        {
+          "id": "chinstraps_plumes_and_other_headgear_accessories",
+          "en": "Chinstraps, plumes, and other headgear accessories",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "en": "Rank, Identity, and Qualification Insignia",
+      "children": [
+        {
+          "id": "rank_insignia",
+          "en": "Rank insignia",
+          "children": [
+            {
+              "id": "epaulettes_and_shoulder_boards",
+              "en": "Epaulettes and shoulder boards",
+              "children": []
+            },
+            {
+              "id": "collar_insignia",
+              "en": "Collar insignia",
+              "children": []
+            },
+            {
+              "id": "sleeve_insignia_and_other_placements",
+              "en": "Sleeve insignia and other placements",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "service_and_branch_insignia",
+          "en": "Service and branch insignia",
+          "children": []
+        },
+        {
+          "id": "unit_and_formation_insignia",
+          "en": "Unit and formation insignia",
+          "children": []
+        },
+        {
+          "id": "specialty_duty_and_identity_insignia",
+          "en": "Specialty, duty, and identity insignia",
+          "children": []
+        },
+        {
+          "id": "qualification_and_proficiency_badges",
+          "en": "Qualification and proficiency badges",
+          "children": []
+        },
+        {
+          "id": "length_of_service_and_other_uniform_insignia",
+          "en": "Length-of-service and other uniform insignia",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "en": "Official Military Awards and Honors",
+      "children": [
+        {
+          "id": "individual_awards",
+          "en": "Individual awards",
+          "children": [
+            {
+              "id": "valor_and_combat_achievement",
+              "en": "Valor and combat achievement",
+              "children": []
+            },
+            {
+              "id": "merit_and_distinguished_service",
+              "en": "Merit and distinguished service",
+              "children": []
+            },
+            {
+              "id": "other_individual_honors",
+              "en": "Other individual honors",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "campaign_expeditionary_and_operational_medals",
+          "en": "Campaign, expeditionary, and operational medals",
+          "children": []
+        },
+        {
+          "id": "service_and_duty_medals",
+          "en": "Service and duty medals",
+          "children": []
+        },
+        {
+          "id": "good_conduct_and_long_service_medals",
+          "en": "Good conduct and long-service medals",
+          "children": []
+        },
+        {
+          "id": "awards_related_to_wounds_captivity_and_similar_experiences",
+          "en": "Awards related to wounds, captivity, and similar experiences",
+          "children": []
+        },
+        {
+          "id": "unit_awards_and_collective_honors",
+          "en": "Unit awards and collective honors",
+          "children": []
+        },
+        {
+          "id": "official_awards_pending_further_classification",
+          "en": "Official awards pending further classification",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "en": "Commemorative Medals and Badges",
+      "children": [
+        {
+          "id": "wars_campaigns_and_events",
+          "en": "Wars, campaigns, and events",
+          "children": []
+        },
+        {
+          "id": "service_and_unit_founding_anniversaries",
+          "en": "Service and unit founding anniversaries",
+          "children": []
+        },
+        {
+          "id": "individuals_and_memorials",
+          "en": "Individuals and memorials",
+          "children": []
+        },
+        {
+          "id": "ceremonies_celebrations_and_visits",
+          "en": "Ceremonies, celebrations, and visits",
+          "children": []
+        },
+        {
+          "id": "commemorative_medallions_plaques_and_tokens",
+          "en": "Commemorative medallions, plaques, and tokens",
+          "children": []
+        },
+        {
+          "id": "other_commemorative_pieces_or_purpose_pending_research",
+          "en": "Other commemorative pieces or purpose pending research",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "en": "Veterans' Organization Badges and Items",
+      "children": [
+        {
+          "id": "membership_and_organizational_identity_badges",
+          "en": "Membership and organizational identity badges",
+          "children": []
+        },
+        {
+          "id": "officer_and_position_badges",
+          "en": "Officer and position badges",
+          "children": []
+        },
+        {
+          "id": "internal_awards",
+          "en": "Internal honors and awards",
+          "children": []
+        },
+        {
+          "id": "annual_meeting_convention_and_delegate_badges",
+          "en": "Annual meeting, convention, and delegate badges",
+          "children": []
+        },
+        {
+          "id": "reunion_and_anniversary_medals",
+          "en": "Reunion and anniversary medals",
+          "children": []
+        },
+        {
+          "id": "uniforms_and_headgear",
+          "en": "Organization uniforms and headgear",
+          "children": []
+        },
+        {
+          "id": "membership_ribbons_sashes_and_other_wearables",
+          "en": "Membership ribbons, sashes, and other wearables",
+          "children": []
+        },
+        {
+          "id": "organization_or_purpose_pending_research",
+          "en": "Organization or purpose pending research",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "en": "Clothing Accessories",
+      "children": [
+        {
+          "id": "buttons_and_fasteners",
+          "en": "Buttons and fasteners",
+          "children": []
+        },
+        {
+          "id": "belts_and_buckles",
+          "en": "Belts and buckles",
+          "children": []
+        },
+        {
+          "id": "ceremonial_sashes_and_shoulder_cords",
+          "en": "Ceremonial sashes and shoulder cords",
+          "children": []
+        },
+        {
+          "id": "neckwear",
+          "en": "Neckwear",
+          "children": []
+        },
+        {
+          "id": "gloves",
+          "en": "Gloves",
+          "children": []
+        },
+        {
+          "id": "footwear",
+          "en": "Footwear, leggings, and spurs",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "H",
+      "en": "Weapons Worn on the Person and Their Accessories",
+      "children": [
+        {
+          "id": "dress_and_ceremonial_weapons",
+          "en": "Dress swords, sabers, and ceremonial weapons",
+          "children": []
+        },
+        {
+          "id": "sword_and_knife_scabbards",
+          "en": "Sword and knife scabbards",
+          "children": []
+        },
+        {
+          "id": "sword_carrying_gear",
+          "en": "Sword belts, slings, and hangers",
+          "children": []
+        },
+        {
+          "id": "sword_and_saber_knots",
+          "en": "Sword and saber knots",
+          "children": []
+        },
+        {
+          "id": "holsters_and_carrying_accessories",
+          "en": "Holsters and carrying accessories",
+          "children": []
+        },
+        {
+          "id": "weapon_and_accessory_sets",
+          "en": "Weapon and accessory sets",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "en": "Personal Field Equipment and Items",
+      "children": [
+        {
+          "id": "packs_haversacks_and_carrying_gear",
+          "en": "Packs, haversacks, and carrying gear",
+          "children": []
+        },
+        {
+          "id": "ammunition_carrying_gear",
+          "en": "Ammunition carrying gear",
+          "children": []
+        },
+        {
+          "id": "canteens_mess_gear_and_camp_equipment",
+          "en": "Canteens, mess gear, and camp equipment",
+          "children": []
+        },
+        {
+          "id": "personal_identification_items_and_effects",
+          "en": "Personal identification items and effects",
+          "children": []
+        },
+        {
+          "id": "other_personal_equipment",
+          "en": "Other personal equipment",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "J",
+      "en": "Flags, Flag Accessories, and Unit Symbols",
+      "children": [
+        {
+          "id": "national_and_military_flags",
+          "en": "National and military flags",
+          "children": []
+        },
+        {
+          "id": "unit_command_and_identification_flags",
+          "en": "Unit, command, and identification flags",
+          "children": []
+        },
+        {
+          "id": "flag_streamers_and_honor_streamers",
+          "en": "Flag streamers and honor streamers",
+          "children": []
+        },
+        {
+          "id": "flagpole_accessories_and_other_unit_symbols",
+          "en": "Flagpole accessories and other unit symbols",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "K",
+      "en": "Related Documents and Visual Materials",
+      "children": [
+        {
+          "id": "award_certificates_and_commendation_documents",
+          "en": "Award certificates and commendation documents",
+          "children": []
+        },
+        {
+          "id": "service_discharge_and_membership_documents",
+          "en": "Service, discharge, and membership documents",
+          "children": []
+        },
+        {
+          "id": "uniform_regulations_catalogs_and_instructional_materials",
+          "en": "Uniform regulations, catalogs, and instructional materials",
+          "children": []
+        },
+        {
+          "id": "visual_materials",
+          "en": "Photographs, portraits, and other visual materials",
+          "children": []
+        },
+        {
+          "id": "other_materials_associated_with_specific_objects",
+          "en": "Other materials associated with specific objects",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "L",
+      "en": "Mixed Groups and Objects Pending Classification",
+      "children": [
+        {
+          "id": "groups_of_personal_effects",
+          "en": "Groups of personal effects",
+          "children": []
+        },
+        {
+          "id": "sets_spanning_multiple_object_categories",
+          "en": "Sets spanning multiple object categories",
+          "children": []
+        },
+        {
+          "id": "insufficient_information_or_further_research_required",
+          "en": "Insufficient information or further research required",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "object_type_mappings": {
+    "Insignias": [
+      "B",
+      "C",
+      "E",
+      "F"
+    ],
+    "Photographs": [
+      "K"
+    ],
+    "Posters": [
+      "K"
+    ],
+    "Coats (garments)": [
+      "A"
+    ],
+    "Insignia, Pair of": [
+      "B",
+      "C",
+      "E",
+      "F"
+    ],
+    "Trousers": [
+      "A"
+    ],
+    "Caps (headgear)": [
+      "B",
+      "F"
+    ],
+    "Rifles (long guns)": null,
+    "Revolvers (firearms)": null,
+    "Medals": [
+      "D",
+      "E",
+      "F"
+    ],
+    "Flags": [
+      "J"
+    ],
+    "Pistols": null,
+    "Belts (costume accessories)": [
+      "G",
+      "H"
+    ],
+    "Swords": [
+      "H"
+    ],
+    "Shirts": [
+      "A"
+    ],
+    "Insignia, Batch of": [
+      "B",
+      "C",
+      "E",
+      "F"
+    ],
+    "revolver, centerfire": null,
+    "Jackets (garments)": [
+      "A"
+    ],
+    "Shoes (footwear)": [
+      "G"
+    ],
+    "Ship": null,
+    "Sketches": [
+      "K"
+    ],
+    "Badges": [
+      "B",
+      "C",
+      "E",
+      "F"
+    ],
+    "Bayonets": null,
+    "rifle, bolt action": null,
+    "Carbines": null
+  }
+}

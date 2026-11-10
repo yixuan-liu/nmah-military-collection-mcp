@@ -1,0 +1,321 @@
+{
+  "summary": [
+    {
+      "branch": "Army",
+      "before": 33671,
+      "after": 33690,
+      "added": 19,
+      "removed": 0
+    },
+    {
+      "branch": "Navy",
+      "before": 6091,
+      "after": 6095,
+      "added": 4,
+      "removed": 0
+    },
+    {
+      "branch": "Air Force",
+      "before": 1174,
+      "after": 1174,
+      "added": 0,
+      "removed": 0
+    },
+    {
+      "branch": "Marine Corps",
+      "before": 1591,
+      "after": 1593,
+      "added": 2,
+      "removed": 0
+    },
+    {
+      "branch": "Coast Guard",
+      "before": 301,
+      "after": 304,
+      "added": 3,
+      "removed": 0
+    }
+  ],
+  "requests": [
+    {
+      "case": "Air_Force_added",
+      "checked_at": "2026-11-08T06:53:25.658691+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\", \"NOT (title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    },
+    {
+      "case": "Air_Force_after",
+      "checked_at": "2026-11-08T06:53:25.310956+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 1174
+    },
+    {
+      "case": "Air_Force_before",
+      "checked_at": "2026-11-08T06:53:24.950378+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 1174
+    },
+    {
+      "case": "Air_Force_removed",
+      "checked_at": "2026-11-08T06:53:26.143450+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\", \"NOT (title:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/ OR object_type:/(.*[Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Rr][Mm][Yy] [Aa][Ii][Rr] [Ff][Oo][Rr][Cc][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa][Aa][Ff]([^A-Za-z0-9_].*)?|.*[Aa][Ii][Rr] [Cc][Oo][Rr][Pp][Ss].*)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    },
+    {
+      "case": "Army_added",
+      "checked_at": "2026-11-08T06:53:23.774944+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 19
+    },
+    {
+      "case": "Army_after",
+      "checked_at": "2026-11-08T06:53:23.631493+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 33690
+    },
+    {
+      "case": "Army_before",
+      "checked_at": "2026-11-08T06:53:23.787287+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 33671
+    },
+    {
+      "case": "Army_removed",
+      "checked_at": "2026-11-08T06:53:26.221461+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Aa][Rr][Mm][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Aa]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Cc]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Ww][Aa][Aa][Cc]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    },
+    {
+      "case": "Coast_Guard_added",
+      "checked_at": "2026-11-08T06:53:27.879925+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 3
+    },
+    {
+      "case": "Coast_Guard_after",
+      "checked_at": "2026-11-08T06:53:27.713407+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 304
+    },
+    {
+      "case": "Coast_Guard_before",
+      "checked_at": "2026-11-08T06:53:27.301884+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 301
+    },
+    {
+      "case": "Coast_Guard_removed",
+      "checked_at": "2026-11-08T06:53:32.022810+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Cc][Oo][Aa][Ss][Tt] [Gg][Uu][Aa][Rr][Dd].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Cc][Gg]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Cc][.][Gg][.]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    },
+    {
+      "case": "Marine_Corps_added",
+      "checked_at": "2026-11-08T06:53:30.784240+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 2
+    },
+    {
+      "case": "Marine_Corps_after",
+      "checked_at": "2026-11-08T06:53:26.558636+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 1593
+    },
+    {
+      "case": "Marine_Corps_before",
+      "checked_at": "2026-11-08T06:53:26.483360+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 1591
+    },
+    {
+      "case": "Marine_Corps_removed",
+      "checked_at": "2026-11-08T06:53:26.997028+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Mm][Aa][Rr][Ii][Nn][Ee] [Cc][Oo][Rr][Pp][Ss].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Mm][Cc]([^A-Za-z0-9_].*)?|.*[Mm][Aa][Rr][Ii][Nn][Ee][Ss].*|(.*[^A-Za-z0-9_])?[Mm][Aa][Rr][Ii][Nn][Ee]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Mm][.][Cc][.]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    },
+    {
+      "case": "Navy_added",
+      "checked_at": "2026-11-08T06:53:24.257635+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 4
+    },
+    {
+      "case": "Navy_after",
+      "checked_at": "2026-11-08T06:53:27.858675+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 6095
+    },
+    {
+      "case": "Navy_before",
+      "checked_at": "2026-11-08T06:53:24.081293+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 6091
+    },
+    {
+      "case": "Navy_removed",
+      "checked_at": "2026-11-08T06:53:24.575891+00:00",
+      "params": {
+        "q": "*",
+        "fqs": "[\"unit_code:NMAH\", \"type:edanmdm\", \"set_name:Military\\\\ and\\\\ Society\\\\:\\\\ Armed\\\\ Forces\\\\ History*\", \"(title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?)/)\", \"NOT (title:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/ OR object_type:/(.*[Nn][Aa][Vv][Yy].*|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][.][Ss][.][Nn][.]([^A-Za-z0-9_].*)?|(.*[^A-Za-z0-9_])?[Uu][Ss][Nn][Rr]([^A-Za-z0-9_].*)?)/)\"]",
+        "rows": 1,
+        "start": 0,
+        "sort": "id"
+      },
+      "status": 200,
+      "responseCode": 1,
+      "rowCount": 0
+    }
+  ]
+}
